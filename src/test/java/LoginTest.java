@@ -30,8 +30,8 @@ public class LoginTest {
         objHomePage.clickSignInButton();
         objLoginPage.waitForLoadSignInButton();
         objLoginPage.login("spbden86@yandex.ru", "Stell@RBurgeR");
-        objHomePage.waitForLoadElement(objHomePage.orderButton);
-        assertEquals("Оформить заказ", driver.findElement(objHomePage.orderButton).getText());
+        objHomePage.waitOrderButtonVisibility();
+        assertEquals("Оформить заказ", objHomePage.orderButtonText());
     }
 
     @Test
@@ -39,8 +39,8 @@ public class LoginTest {
         objHomePage.clickPersonalAccount();
         objLoginPage.waitForLoadSignInButton();
         objLoginPage.login("spbden86@yandex.ru", "Stell@RBurgeR");
-        objHomePage.waitForLoadElement(objHomePage.orderButton);
-        assertEquals("Оформить заказ", driver.findElement(objHomePage.orderButton).getText());
+        objHomePage.waitOrderButtonVisibility();
+        assertEquals("Оформить заказ", objHomePage.orderButtonText());
     }
 
     @Test
@@ -49,12 +49,12 @@ public class LoginTest {
         objLoginPage.waitForLoadSignInButton();
         objLoginPage.clickSignUpButton();
         SignUpPage objSignUp = new SignUpPage(driver);
-        objSignUp.waitForLoadElement(objSignUp.signInButton);
+        objSignUp.waitSignInButtonVisibility();
         objSignUp.clickSignInButton();
         objLoginPage.waitForLoadSignInButton();
         objLoginPage.login("spbden86@yandex.ru", "Stell@RBurgeR");
-        objHomePage.waitForLoadElement(objHomePage.orderButton);
-        assertEquals("Оформить заказ", driver.findElement(objHomePage.orderButton).getText());
+        objHomePage.waitOrderButtonVisibility();
+        assertEquals("Оформить заказ", objHomePage.orderButtonText());
     }
 
     @Test
@@ -63,12 +63,12 @@ public class LoginTest {
         objLoginPage.waitForLoadSignInButton();
         objLoginPage.clickRestoreButton();
         RestorePassPage objRestorePass = new RestorePassPage(driver);
-        objRestorePass.waitForLoadElement(objRestorePass.signInButton);
+        objRestorePass.waitSignInButtonVisibility();
         objRestorePass.clickSignInButton();
         objLoginPage.waitForLoadSignInButton();
         objLoginPage.login("spbden86@yandex.ru", "Stell@RBurgeR");
-        objHomePage.waitForLoadElement(objHomePage.orderButton);
-        assertEquals("Оформить заказ", driver.findElement(objHomePage.orderButton).getText());
+        objHomePage.waitOrderButtonVisibility();
+        assertEquals("Оформить заказ", objHomePage.orderButtonText());
     }
 
     @After

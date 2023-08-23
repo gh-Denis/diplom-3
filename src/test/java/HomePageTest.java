@@ -22,25 +22,25 @@ public class HomePageTest {
 
     @Test
     public void shouldOpenBunSection() {
-        objHomePage.waitForLoadElement(objHomePage.bunSection);
-        objHomePage.waitForLoadElement(objHomePage.bunSelected);
-        assertEquals("Булки", driver.findElement(objHomePage.bunSelected).getText());
+        objHomePage.waitBunSectionVisibility();
+        objHomePage.waitBunSelected();
+        assertEquals("Булки", objHomePage.bunSelectedText());
     }
 
     @Test
     public void shouldOpenSauceSection() {
-        objHomePage.waitForLoadElement(objHomePage.sauceSection);
+        objHomePage.waitSauceSectionVisibility();
         objHomePage.clickSauceSection();
-        objHomePage.waitForLoadElement(objHomePage.sauceSelected);
-        assertEquals("Соусы", driver.findElement(objHomePage.sauceSelected).getText());
+        objHomePage.waitSauceSelected();
+        assertEquals("Соусы", objHomePage.sauceSelectedText());
     }
 
     @Test
     public void shouldOpenFillingSection() {
-        objHomePage.waitForLoadElement(objHomePage.fillingSection);
+        objHomePage.waitFillingSectionVisibility();
         objHomePage.clickFillingSection();
-        objHomePage.waitForLoadElement(objHomePage.fillingSelected);
-        assertEquals("Начинки", driver.findElement(objHomePage.fillingSelected).getText());
+        objHomePage.waitFillingSelected();
+        assertEquals("Начинки", objHomePage.fillingSelectedText());
     }
 
     @After

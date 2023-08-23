@@ -31,7 +31,7 @@ public class PersonalAccountTest {
         objHomePage.clickPersonalAccount();
         PersonalAccountPage obgAccountPage = new PersonalAccountPage(driver);
         obgAccountPage.waitForLoadProfile();
-        assertEquals("Профиль", driver.findElement(obgAccountPage.profile).getText());
+        assertEquals("Профиль", obgAccountPage.profileText());
     }
 
     @Test
@@ -40,8 +40,8 @@ public class PersonalAccountTest {
         PersonalAccountPage obgAccountPage = new PersonalAccountPage(driver);
         obgAccountPage.waitForLoadProfile();
         obgAccountPage.clickConstructor();
-        objHomePage.waitForLoadElement(objHomePage.constructorActive);
-        assertEquals("Соберите бургер", driver.findElement(objHomePage.constructorHeader).getText());
+        objHomePage.waitConstructorActiveVisibility();
+        assertEquals("Соберите бургер", objHomePage.constructorHeaderText());
     }
 
     @Test
@@ -50,8 +50,8 @@ public class PersonalAccountTest {
         PersonalAccountPage obgAccountPage = new PersonalAccountPage(driver);
         obgAccountPage.waitForLoadProfile();
         obgAccountPage.clickLogo();
-        objHomePage.waitForLoadElement(objHomePage.constructorActive);
-        assertEquals("Соберите бургер", driver.findElement(objHomePage.constructorHeader).getText());
+        objHomePage.waitConstructorActiveVisibility();
+        assertEquals("Соберите бургер", objHomePage.constructorHeaderText());
     }
 
     @Test
@@ -61,7 +61,7 @@ public class PersonalAccountTest {
         obgAccountPage.waitForLoadProfile();
         obgAccountPage.clickExitButton();
         objLoginPage.waitForLoadSignInButton();
-        assertEquals("Вход", driver.findElement(objLoginPage.signInHeader).getText());
+        assertEquals("Вход", objLoginPage.signInHeaderText());
     }
 
     @After

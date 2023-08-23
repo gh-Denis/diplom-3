@@ -37,19 +37,19 @@ public class SignUpTest {
     @Test
     public void shouldSignUp() {
         SignUpPage objSignUpPage = new SignUpPage(driver);
-        objSignUpPage.waitForLoadElement(objSignUpPage.signUpButton);
+        objSignUpPage.waitSignUpButtonVisibility();
         objSignUpPage.signUp(name, email, password);
         objLoginPage.waitForLoadSignInButton();
-        assertEquals("Вход", driver.findElement(objLoginPage.signInHeader).getText());
+        assertEquals("Вход", objLoginPage.signInHeaderText());
     }
 
     @Test
     public void shouldNotSignUp() {
         SignUpPage objSignUpPage = new SignUpPage(driver);
-        objSignUpPage.waitForLoadElement(objSignUpPage.signUpButton);
+        objSignUpPage.waitSignUpButtonVisibility();
         objSignUpPage.signUp(name, email, "test");
-        objSignUpPage.waitForLoadElement(objSignUpPage.passwordError);
-        assertEquals("Некорректный пароль", driver.findElement(objSignUpPage.passwordError).getText());
+        objSignUpPage.waitPasswordErrorVisibility();
+        assertEquals("Некорректный пароль", objSignUpPage.passwordErrorText());
     }
 
     @After
